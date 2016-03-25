@@ -33,3 +33,20 @@ hover与CSS3的动画效果
 ![image](https://github.com/xiaojiandong/hoverCSS3/blob/master/%5B%22img%22%5D/animate3.png)
 ## 效果4：掷骰子
 ![image](https://github.com/xiaojiandong/hoverCSS3/blob/master/%5B%22img%22%5D/animate4.png)
+```less
+.welcome2{
+      top:55%;
+      -webkit-animation:welcome2Animate .7s .8s backwards;
+    }
+    @-webkit-keyframes welcome2Animate{
+      0%{
+        -webkit-transform: translateY(0px);
+      }
+      50%{
+        -webkit-transform: translateY(-140px);
+      }
+      100%{
+        -webkit-transform: translateY(0px);
+      }
+    }
+```
