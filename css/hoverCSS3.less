@@ -1,0 +1,453 @@
+
+// transform: rotate(45deg) scale(0.5) skew(30deg, 30deg) translate(100px, 100px);
+
+*{
+  font-family: '微软雅黑';
+  font-weight: bold;
+  text-align: center;
+  list-style: none;
+}
+
+.container-wrap{
+  width: 860px;
+  height: 300px;
+  padding: 20px;
+  background-color: pink;
+  color: #fff;
+  margin: 0px auto;
+  margin-top: 100px;
+  .common-section{ // 父元素共同的类
+    position: relative;
+    float: left;
+    margin-right: 20px;
+    width: 200px;
+    height: 300px;
+    box-sizing: border-box;
+    &:last-child{
+      margin-right: 0;
+    }
+    .common-img{
+      display: block;
+      width: 200px;
+      height: 300px;
+    }
+  }
+}
+
+// 第1个img，倾斜旋转动画
+.lean-img-1{
+  overflow: hidden;
+  .common-shadow{
+    position: absolute;
+    width: 200px;
+    height: 400px;
+    background-color: rgba(0,0,0,0.5);
+    -webkit-transition-duration:.3s;
+    -webkit-transform:rotate(33.5deg);
+  }
+  .top-left-shadow{ // 左上角往下的阴影
+    .common-shadow;
+    top: -394px;
+    left: -91px;
+  }
+  .bottom-right-shadow{ // 右下角往上的阴影
+    .common-shadow;
+    top: 320px;
+    left: 75px;
+  }
+  .hello-world-1{
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    top: 122px;
+    left: 28px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgb(230,60,110);
+    border-radius: 50px;
+    -webkit-opacity: 0;
+  }
+  &:hover{ // hover动画
+    .top-left-shadow{
+      top: -90px;
+      left: -94px;
+    }
+    .bottom-right-shadow{
+      top: 17px;
+      left: 75px;
+    }
+    .hello-world-1{
+      -webkit-animation:helloWorldAnimate1 0.8s 0.3s backwards;
+      -webkit-opacity:1;
+    }
+    @-webkit-keyframes helloWorldAnimate1{
+      0%{
+        -webkit-transform: rotate(0deg) scale(0);
+      }
+      100%{
+        -webkit-transform: rotate(360deg) scale(1);
+      }
+    }
+  }
+}
+
+// 第2个img，滚动居中的动画
+.left-right-img-2{
+  overflow: hidden;
+  .common-rect{
+    position: absolute;
+    width: 100px;
+    height: 150px;
+    -webkit-transition-duration:.3s;
+    background-color:#34efab;
+    -webkit-opacity: 0.5;
+  }
+  .top-left-rect{
+    .common-rect;
+    top: -150px;
+    left: -100px;
+  }
+  .top-right-rect{
+    .common-rect;
+    top: -150px;
+    left: 200px;
+  }
+  .bottom-left-rect{
+    .common-rect;
+    top: 300px;
+    left: -100px;
+  }
+  .bottom-right-rect{
+    .common-rect;
+    top: 300px;
+    left: 200px;
+  }
+  .common-word{
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    border-radius: 60px;
+    text-align: center;
+    background-color: rgb(230,60,110);
+  }
+  .hello{
+    .common-word;
+    top: 80px;
+    left: -60px;
+  }
+  .wold{
+    .common-word;
+    top: 160px;
+    left: 200px;
+  }
+
+
+  &:hover{ // hover动画
+   .top-left-rect{
+     top: 0px;
+     left: 0px;
+   }
+   .top-right-rect{
+     top: 0px;
+     left: 100px;
+   }
+   .bottom-left-rect{
+     top: 150px;
+     left: 0px;
+   }
+   .bottom-right-rect{
+     top: 150px;
+     left: 100px;
+   }
+   .hello{
+     -webkit-animation:helloAnimate 0.8s 0.3s backwards;
+     left: 68px;
+   }
+    @-webkit-keyframes helloAnimate{
+      0%{
+        -webkit-transform: rotate(0deg);
+        left: -60px;
+        -webkit-opacity: 0;
+      }
+      100%{
+        -webkit-transform: rotate(360deg);
+        left: 68px;
+        -webkit-opacity: 1;
+      }
+    }
+    .wold{
+     -webkit-animation:woldAnimate 0.8s 0.5s backwards;
+     left: 68px;
+   }
+    @-webkit-keyframes woldAnimate{
+      0%{
+        -webkit-transform: rotate(0deg) translateX(0px);
+        left: 200px;
+        -webkit-opacity: 0;
+      }
+      100%{
+        -webkit-transform: rotate(-360deg) translateX(0px);
+        left: 68px;
+        -webkit-opacity: 1;
+      }
+    }
+  }
+}
+
+// 第3个img，下拉菜单
+.top-down-img-3{
+  overflow: hidden;
+  .common-rect{
+    position: absolute;
+    width: 0%;
+    height: 0%;
+    -webkit-transition-duration:.3s;
+    background-color:rgba(0,0,0,0.5);
+    border-radius:50%;
+  }
+  .center-top-left-rect{
+    .common-rect;
+    top:25%;
+    left:25%;
+  }
+  .center-top-right-rect{
+    .common-rect;
+    top:25%;
+    left:75%;
+  }
+
+  .center-bottom-left-rect{
+    .common-rect;
+    top:75%;
+    left:75%;
+  }
+  .center-bottom-right-rect{
+    .common-rect;
+    top:75%;
+    left:25%;
+  }
+  .dot{ // 树立的线
+    position: absolute;
+    left:47%;
+    top:-5%;
+    height:0%;
+    border:2px dashed rgb(230,60,110);
+    transition-delay:.3s;
+    transition-duration:.5s;
+  }
+  .hello-world-2{
+    position: absolute;
+    width: 140px;
+    height: 50px;
+    top: -18%;
+    left: 28px;
+    line-height: 50px;
+    text-align: center;
+    background-color: rgb(230,60,110);
+    border-radius: 50px;
+    transition-delay:.3s;
+    transition-duration:.5s;
+    &:before{
+      content:"";
+      position:absolute;
+      left:38%;
+      top:-50%;
+      border:14px solid transparent;
+      border-bottom:12px solid rgb(230,60,110);
+    }
+  }
+  &:hover{
+    .common-rect-animatoin{
+      width:50%;
+      height:50%;
+      border-radius:0%;
+    }
+    .center-top-left-rect{
+      .common-rect-animatoin;
+      left:0%;
+      top:0%;
+    }
+    .center-top-right-rect{
+      .common-rect-animatoin;
+      left:50%;
+      top: 0%;
+    }
+    .center-bottom-left-rect{
+      .common-rect-animatoin;
+      left:50%;
+      top:50%;
+    }
+    .center-bottom-right-rect{
+      .common-rect-animatoin;
+      left:0%;
+      top:50%;
+    }
+    .dot{
+      height:50%;
+    }
+    .hello-world-2{
+      top:125px;
+      -webkit-animation:helloWold2Animate .3s .5s backwards;
+    }
+    @-webkit-keyframes helloWold2Animate{
+      0%{
+        -webkit-transform: translateY(0px);
+      }
+      50%{
+        -webkit-transform: translateY(50px);
+      }
+      100%{
+        -webkit-transform: translateY(0px);
+      }
+    }
+  }
+}
+
+// 第4个img，掷骰子动画
+.down-top-img-4{
+  overflow: hidden;
+  .common-rect{
+    position: absolute;
+    top:50%;
+    background:#34efab;
+    border-radius:50%;
+    opacity: 0.2;
+    transition-duration: .6s;
+    width:0%;
+    height:0%;
+  }
+  .left-rect{
+    .common-rect;
+    left:-1%;
+  }
+  .right-rect{
+    .common-rect;
+    left:100%;
+  }
+  .common-word{
+    position: absolute;
+    width:98px;
+    height:40px;
+    line-height:40px;
+    font-size:17px;
+    color:#fff;
+    text-align: center;
+    font-weight:bold;
+    left:50px;
+    top:100%;
+    background:rgb(230,60,110);
+    border-radius:30px;
+  }
+
+  .css31{
+    .common-word;
+    transition-delay:.6s;
+    transition-duration:.5s;
+  }
+  .welcome2{
+    .common-word;
+    transition-delay:.7s;
+    transition-duration:.5s;
+  }
+  .world3{
+    .common-word;
+    transition-delay:.8s;
+    transition-duration:.5s;
+  }
+  .hello4{
+    .common-word;
+    transition-delay:.9s;
+    transition-duration:.5s;
+  }
+
+  &:hover{
+    .left-rect{
+      width:240%;
+      height:200%;
+      top:-50%;
+      left: -120%;
+    }
+    .right-rect{
+      width:240%;
+      height:200%;
+      top:-50%;
+      left: -20%;
+    }
+    .css31{
+      top:80%;
+      -webkit-animation:js1Animate .7s .6s backwards;
+    }
+    @-webkit-keyframes js1Animate{
+      0%{
+        -webkit-transform: translateY(0px);
+      }
+      50%{
+        -webkit-transform: translateY(-220px);
+      }
+      100%{
+        -webkit-transform: translateY(0px);
+      }
+    }
+    .welcome2{
+      top:55%;
+      -webkit-animation:welcome2Animate .7s .8s backwards;
+    }
+    @-webkit-keyframes welcome2Animate{
+      0%{
+        -webkit-transform: translateY(0px);
+      }
+      50%{
+        -webkit-transform: translateY(-140px);
+      }
+      100%{
+        -webkit-transform: translateY(0px);
+      }
+    }
+    .world3{
+      top:30%;
+      -webkit-animation:world3Animate .7s 1.0s backwards;
+    }
+    @-webkit-keyframes world3Animate{
+      0%{
+        -webkit-transform: translateY(0px);
+      }
+      50%{
+        -webkit-transform: translateY(-140px);
+      }
+      100%{
+        -webkit-transform: translateY(0px);
+      }
+    }
+    .hello4{
+      top:5%;
+      -webkit-animation:hello4Animate .7s 1.2s backwards;
+    }
+    @-webkit-keyframes hello4Animate{
+      0%{
+        -webkit-transform: translateY(0px);
+      }
+      50%{
+        -webkit-transform: translateY(-140px);
+      }
+      100%{
+        -webkit-transform: translateY(0px);
+      }
+    }
+
+  }
+}
+
+.description-ul{
+  width: 860px;
+  height: 50px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: pink;
+  text-align: center;
+  font-size: 24px;
+  li{
+    float: left;
+    width: 25%;
+  }
+}
